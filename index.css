@@ -22,10 +22,11 @@ body{
     float: left;
     padding-left: 5px;
     padding-right: 5px;
-    padding-top: 0;
-    padding-bottom: ;
     font-family: serif;
     font-size: x-large;
+}
+.green{
+    color: green;
 }
 #whole{
     background-image: linear-gradient(to right, #01F9C6 , rgb(236, 238, 238));    border-radius: 16px;
