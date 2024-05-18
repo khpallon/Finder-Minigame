@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="finder.js"></script> 
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/x-icon" href="/Letter.png">
+    <title>FINDER-MINIGAME</title>
+</head>
+<body>
+    <div id="whole" class="whole">
+    <p>FINDER-MINIGAME</p>
+    <div id="minigame"></div>
+    <p id="timer"></p>   
+</div>
+<div id="radial">
+    <button id="restart" onclick="main()">START/RESTART</button>
+    <form id="myForm">
+        <p id="radialValue">Time: 5</p>
+        <input autocomplete="off" type="range" min="5" max="25" value="5" id="slider" class="slider">
+        <p id="letterValue">Letters: 10</p>
+        <input autocomplete="off" type="range" min="10" max="30" value="10" id="letterSlider" class="slider">
+        <p>Letter Type:</p>
+        <select id="letterType">
+            <option value="left">Left letters</option>
+            <option value="right">Right letters</option>
+            <option value="all">All letters</option>
+        </select>
+    </form>
+</div>
+</body>
+</html>

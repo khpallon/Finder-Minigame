@@ -1,0 +1,77 @@
+body{
+    font-family: Neuropol;
+    background-color: aliceblue;
+}
+.letter{
+    font-size: larger;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius:5px;
+    background-color: #01F9C6;
+    display: inline-block;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 2px 2px;
+}
+#minigame{
+    display: inline-block;
+    border: 1px red solid;
+    width: 75%;
+    background-color: grey;
+}
+.chars{
+    float: left;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0;
+    padding-bottom: ;
+    font-family: serif;
+    font-size: x-large;
+}
+#whole{
+    background-image: linear-gradient(to right, #01F9C6 , rgb(236, 238, 238));    border-radius: 16px;
+    box-shadow: 10px 10px 5px rgb(158, 154, 154);
+    max-width: 640px;
+    margin: 40px auto;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-out;
+    text-align: center;
+
+}
+#radial{
+    background-image: linear-gradient(to right, #01F9C6 , rgb(236, 238, 238));    border-radius: 16px;
+    box-shadow: 10px 10px 5px rgb(158, 154, 154);
+    max-width: 640px;
+    margin: 40px auto;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-out;
+
+}
+#restart{
+    display:block;
+    font-family: Neuropol;
+    font-size: larger;
+    border-radius:5px;
+    border: 1px solid rgb(0, 0, 0);
+    box-shadow: 2px 2px;
+    background-color: #01F9C6;
+
+}
+
+#restart:hover{
+    background-color: #18a78a;
+    cursor: pointer;
+}
+
+@font-face {
+    font-family: 'Neuropol'; /*a name to be used later*/
+    src: url('./neuropol\ x\ rg.otf'); /*URL to font*/
+}
+  
+  .slider {
+    width: 25%;
+  }
+  
