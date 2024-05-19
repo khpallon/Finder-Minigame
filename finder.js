@@ -7,7 +7,7 @@ function main(){
     document.getElementById("minigame").innerHTML = "";
     randomize();
     movement();
-    setInterval(update, 4000);
+    /* setInterval(update, 4000); */
 
 
 }
@@ -17,20 +17,27 @@ function movement(){
     window.addEventListener("keydown", (event) => {
         // UP
         if (event.keyCode === 38) {
-            console.log('yo')
+            console.log(playerLocation)
           for (let i = 0; i < playerLocation.length; i++){
             let element = document.getElementsByClassName("chars")[playerLocation[i]];
-            element.style.color = "black";
             element.classList.remove('green')
-            playerLocation[i] = playerLocation[i] - 10;
-            element.classList.add('green');
+            playerLocation[i] = playerLocation[i] - 14;
+            document.getElementsByClassName("chars")[playerLocation[i]].classList.add('green');
 
 
           }
         }
         // DOWN
         if (event.keyCode === 40) {
-            return;
+            console.log(playerLocation)
+            for (let i = 0; i < playerLocation.length; i++){
+            let element = document.getElementsByClassName("chars")[playerLocation[i]];
+            element.classList.remove('green')
+            playerLocation[i] = playerLocation[i] + 14;
+            document.getElementsByClassName("chars")[playerLocation[i]].classList.add('green');
+
+
+          }
           }
         // LEFT
         if (event.keyCode === 37) {
