@@ -17,23 +17,38 @@ function movement(){
     window.addEventListener("keydown", (event) => {
         // UP
         if (event.keyCode === 38) {
+            event.preventDefault();
             console.log(playerLocation)
           for (let i = 0; i < playerLocation.length; i++){
             let element = document.getElementsByClassName("chars")[playerLocation[i]];
             element.classList.remove('green')
-            playerLocation[i] = playerLocation[i] - 14;
+
+            if (playerLocation[i] >= 0 && playerLocation[i] <= 13) {
+                playerLocation[i] = playerLocation[i] + 126;
+            } else {
+                playerLocation[i] = playerLocation[i] - 14;
+            }
+            
             document.getElementsByClassName("chars")[playerLocation[i]].classList.add('green');
+
+            
 
 
           }
         }
         // DOWN
         if (event.keyCode === 40) {
+            event.preventDefault();
             console.log(playerLocation)
             for (let i = 0; i < playerLocation.length; i++){
             let element = document.getElementsByClassName("chars")[playerLocation[i]];
             element.classList.remove('green')
-            playerLocation[i] = playerLocation[i] + 14;
+            if (playerLocation[i] >= 126 && playerLocation[i] <= 139) {
+                playerLocation[i] = playerLocation[i] - 126;
+            } else {
+                playerLocation[i] = playerLocation[i] + 14;
+            }
+            
             document.getElementsByClassName("chars")[playerLocation[i]].classList.add('green');
 
 
@@ -41,11 +56,63 @@ function movement(){
           }
         // LEFT
         if (event.keyCode === 37) {
-            return;
+            event.preventDefault();
+            for (let i = 0; i < playerLocation.length; i++){
+            document.getElementsByClassName("chars")[playerLocation[i]].classList.remove('green');
+
+            if (playerLocation[i] === 0) {
+                console.log('yppp')
+                playerLocation[i] = 139;
+                document.getElementsByClassName("chars")[139].classList.add('green');
+                continue
+
+            } else {
+                playerLocation[i] = playerLocation[i] - 1;
+            }
+            document.getElementsByClassName("chars")[playerLocation[i]].classList.add('green');
+
+
+          }
+          console.log(playerLocation)
           }
         // RIGHT
-        if (event.keyCode === 39) {
-            return;
+        if (event.keyCode === 39) { 
+
+            event.preventDefault();
+            console.log(playerLocation)
+
+            for (let i = 0; i < playerLocation.length; i++){
+
+                if (i === 0){
+                    document.getElementsByClassName("chars")[playerLocation[i]].classList.remove('green');
+
+                    if (playerLocation[i] === 139) {
+                        console.log('yppp')
+                        playerLocation[i] = 0;
+                        document.getElementsByClassName("chars")[0].classList.add('green');
+                        continue
+        
+                    } else {
+                        playerLocation[i] = playerLocation[i] + 1;
+                    }
+
+                    continue
+                }
+            if (playerLocation[i] === 139) {
+                console.log('yppp')
+                playerLocation[i] = 0;
+                document.getElementsByClassName("chars")[0].classList.add('green');
+                continue
+
+            } else {
+                playerLocation[i] = playerLocation[i] + 1;
+            }
+
+            document.getElementsByClassName("chars")[playerLocation[i]].classList.add('green');
+            
+
+
+          }
           }
       });
 
@@ -57,9 +124,9 @@ function randomize(){
         numberList.push(combo); 
 
         if (i > (playerLocation[0]-1) && i < (playerLocation[3]+1)){
-            var template = htmlToElement(`<div class="chars green">${combo}</div>`)
+            var template = htmlToElement(`<div class="chars green ${i}">${combo}</div>`)
         } else {
-            var template = htmlToElement(`<div class="chars">${combo}</div>`)
+            var template = htmlToElement(`<div class="chars ${i}">${combo}</div>`)
         }
 
         
