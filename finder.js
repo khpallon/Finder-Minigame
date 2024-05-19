@@ -2,12 +2,14 @@ let numberList = [];
 let answer;
 let playerLocation = [75, 76, 77, 78]
 let numLoc;
+let submit = "";
+let play;
 
 function main(){
     document.getElementById("minigame").innerHTML = "";
     randomize();
     movement();
-    /* setInterval(update, 4000); */
+    play = setInterval(update, 2000);
 
 
 }
@@ -15,10 +17,27 @@ function main(){
 function movement(){
 
     window.addEventListener("keydown", (event) => {
+
+        if (event.keyCode === 13){
+            event.preventDefault();
+            for (let i = 0; i < playerLocation.length; i++){
+            let element = document.getElementsByClassName("chars")[playerLocation[i]].innerHTML;
+                submit += element
+            }
+            console.log(submit)
+            if (answer === submit){
+                console.log("YAAAAAAAAAAAA")
+                clearInterval(play)
+            } else {
+                console.log("NAAAAAAAAAAAAAAA")
+                clearInterval(play)
+            }
+        }
+
+
         // UP
         if (event.keyCode === 38) {
             event.preventDefault();
-            console.log(playerLocation)
           for (let i = 0; i < playerLocation.length; i++){
             let element = document.getElementsByClassName("chars")[playerLocation[i]];
             element.classList.remove('green')
@@ -39,7 +58,6 @@ function movement(){
         // DOWN
         if (event.keyCode === 40) {
             event.preventDefault();
-            console.log(playerLocation)
             for (let i = 0; i < playerLocation.length; i++){
             let element = document.getElementsByClassName("chars")[playerLocation[i]];
             element.classList.remove('green')
@@ -61,7 +79,6 @@ function movement(){
             document.getElementsByClassName("chars")[playerLocation[i]].classList.remove('green');
 
             if (playerLocation[i] === 0) {
-                console.log('yppp')
                 playerLocation[i] = 139;
                 document.getElementsByClassName("chars")[139].classList.add('green');
                 continue
@@ -73,13 +90,11 @@ function movement(){
 
 
           }
-          console.log(playerLocation)
           }
         // RIGHT
         if (event.keyCode === 39) { 
 
             event.preventDefault();
-            console.log(playerLocation)
 
             for (let i = 0; i < playerLocation.length; i++){
 
@@ -87,7 +102,6 @@ function movement(){
                     document.getElementsByClassName("chars")[playerLocation[i]].classList.remove('green');
 
                     if (playerLocation[i] === 139) {
-                        console.log('yppp')
                         playerLocation[i] = 0;
                         document.getElementsByClassName("chars")[0].classList.add('green');
                         continue
@@ -99,7 +113,6 @@ function movement(){
                     continue
                 }
             if (playerLocation[i] === 139) {
-                console.log('yppp')
                 playerLocation[i] = 0;
                 document.getElementsByClassName("chars")[0].classList.add('green');
                 continue
@@ -139,19 +152,17 @@ function randomize(){
     let start = Math.floor(Math.random() * 136) 
 
     answer = numberList[start] + numberList[start+1] + numberList[start+2] + numberList[start+3]
-
     console.log(answer)
-
-    console.log(numberList.length)
 }
 
 function update(){
     numberList.push(numberList.shift());
     document.getElementById("minigame").innerHTML = "";
 
-    for (let i = 0; i < numberList.length ; i++){
+    
 
-        if (i > (playerLocation[0]-1) && i < (playerLocation[3]+1)){
+    for (let i = 0; i < numberList.length ; i++){
+        if (playerLocation.includes(i)){
             var template = htmlToElement(`<div class="chars green">${numberList[i]}</div>`)
         } else {
             var template = htmlToElement(`<div class="chars">${numberList[i]}</div>`)
