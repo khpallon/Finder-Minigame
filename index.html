@@ -11,16 +11,15 @@
 <body>
     <div id="whole" class="whole">
     <p>FINDER-MINIGAME</p>
+    <div id="findthis"></div>
     <div id="minigame"></div>
     <p id="timer"></p>   
 </div>
 <div id="radial">
-    <button id="restart" onclick="main()">START/RESTART</button>
+    <button id="restart" onclick="reset()">START/RESTART</button>
     <form id="myForm">
         <p id="radialValue">Time: 5</p>
         <input autocomplete="off" type="range" min="5" max="25" value="5" id="slider" class="slider">
-        <p id="letterValue">Letters: 10</p>
-        <input autocomplete="off" type="range" min="10" max="30" value="10" id="letterSlider" class="slider">
         <p>Letter Type:</p>
         <select id="letterType">
             <option value="left">Left letters</option>
