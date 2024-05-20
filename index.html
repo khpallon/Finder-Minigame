@@ -12,6 +12,7 @@
     <div id="whole" class="whole">
     <p>FINDER-MINIGAME</p>
     <div id="findthis"></div>
+    <div id="timer"></div>
     <div id="minigame"></div>
     <p id="timer"></p>   
 </div>
@@ -19,13 +20,13 @@
     <button id="restart" onclick="reset()">START/RESTART</button>
     <form id="myForm">
         <p id="radialValue">Time: 5</p>
-        <input autocomplete="off" type="range" min="5" max="25" value="5" id="slider" class="slider">
-        <p>Letter Type:</p>
-        <select id="letterType">
-            <option value="left">Left letters</option>
-            <option value="right">Right letters</option>
-            <option value="all">All letters</option>
-        </select>
+        <input autocomplete="off" type="range" min="5" max="30" value="5" id="slider" class="slider"><br>
+        <input type="checkbox" id="alphabet" value="alphabet">
+        <label for="alphabet">Alphabet</label><br>
+        <input type="checkbox" id="number" value="number">
+        <label for="number">Numbers</label><br>
+        <input type="checkbox" id="alphanum" value="alphanum">
+        <label for="alphanum">Mix of alphabet and numbers</label><br>
     </form>
 </div>
 </body>
